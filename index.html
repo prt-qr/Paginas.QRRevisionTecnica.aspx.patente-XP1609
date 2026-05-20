@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Datos Revision Tecnica</title>
+
+<!-- ============================= -->
+<!-- 🔧 EDITAR SOLO AQUÍ -->
+<!-- ============================= -->
+<script>
+const d = {
+    patente: "XP1609",
+    marca: "VOLKSWAGEN",
+    tipo: "AUTOMOVIL",
+    modelo: "GOL G3 COMFORTLINE 1.6",
+    anio: "2004",
+
+    region_rt: "XIII Metropolitana de Santiago",
+    cert_rt: "N°B9186000000837619",
+    fecha_rt: "30-01-2026",
+    estado_rt: "Aprobada",
+    vencimiento_rt: "31-01-2027",
+    nombre_prt_rt: "TÜV RHEINLAND ANDINO S.A.",
+    direccion_prt_rt: "AMÉRICO VESPUCIO 1393",
+
+    region_gas: "XIII Metropolitana de Santiago",
+    cert_gas: "N°B9186000000837619",
+    fecha_gas: "30-01-2026",
+    estado_gas: "Aprobada",
+    vencimiento_gas: "31-01-2027",
+    nombre_prt_gas: "TÜV RHEINLAND ANDINO S.A.",
+    direccion_prt_gas: "AMÉRICO VESPUCIO 1393"
+};
+</script>
+
+<!-- ============================= -->
+<!-- DISEÑO ORIGINAL -->
+<!-- ============================= -->
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css">
+<script src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+
+<style>
+table.altrowstable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #a9c6c9;
+	border-collapse: collapse;
+}
+table.altrowstable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+</style>
+
+<!-- ============================= -->
+<!-- LÓGICA (DESPUÉS DE CARGAR) -->
+<!-- ============================= -->
+<script>
+window.onload = function () {
+
+    // 🔒 Seguridad (DESPUÉS de cargar)
+    if (location.hostname !== "prt-qr.github.io") {
+        document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Acceso no autorizado</h1>";
+        return;
+    }
+
+    document.addEventListener("contextmenu", e => e.preventDefault());
+
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123) return false;
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) return false;
+        if (e.ctrlKey && e.keyCode == 85) return false;
+    };
+
+    // 🔧 Cargar datos
+    for (let key in d) {
+        let el = document.getElementById(key);
+        if (el) el.innerText = d[key];
+    }
+};
+</script>
+
+</head>
+
+<body>
+
+<div data-role="page">
+
+<div data-role="header" data-theme="b">
+<h1>Datos <br> Revision Tecnica</h1>
+</div>
+
+<div data-role="content">
+
+<table class="altrowstable">
+<tbody>
+
+<tr><td><label><strong>PLACA PATENTE</strong>: <span id="patente"></span></label></td></tr>
+<tr><td><label><strong>Marca</strong>: <span id="marca"></span></label></td></tr>
+<tr><td><label><strong>Tipo</strong>: <span id="tipo"></span></label></td></tr>
+<tr><td><label><strong>Modelo</strong>: <span id="modelo"></span></label></td></tr>
+<tr><td><label><strong>Año Fab.</strong>: <span id="anio"></span></label></td></tr>
+
+<tr><td><label><strong>REVISION TECNICA</strong></label></td></tr>
+<tr><td><label><strong>Region</strong>: <span id="region_rt"></span></label></td></tr>
+<tr><td><label><strong>N° Cert</strong>: <span id="cert_rt"></span></label></td></tr>
+<tr><td><label><strong>Fecha</strong>: <span id="fecha_rt"></span></label></td></tr>
+<tr><td><label><strong>Estado</strong>: <span id="estado_rt"></span></label></td></tr>
+<tr><td><label><strong>Fecha Venc.</strong>: <span id="vencimiento_rt"></span></label></td></tr>
+<tr><td><label><strong>Nombre PRT</strong>: <span id="nombre_prt_rt"></span></label></td></tr>
+<tr><td><label><strong>Dirección PRT</strong>: <span id="direccion_prt_rt"></span></label></td></tr>
+
+<tr><td><label><strong>REVISION GASES</strong></label></td></tr>
+<tr><td><label><strong>Region</strong>: <span id="region_gas"></span></label></td></tr>
+<tr><td><label><strong>N° Cert</strong>: <span id="cert_gas"></span></label></td></tr>
+<tr><td><label><strong>Fecha</strong>: <span id="fecha_gas"></span></label></td></tr>
+<tr><td><label><strong>Estado</strong>: <span id="estado_gas"></span></label></td></tr>
+<tr><td><label><strong>Fecha Venc.</strong>: <span id="vencimiento_gas"></span></label></td></tr>
+<tr><td><label><strong>Nombre PRT</strong>: <span id="nombre_prt_gas"></span></label></td></tr>
+<tr><td><label><strong>Dirección PRT</strong>: <span id="direccion_prt_gas"></span></label></td></tr>
+
+</tbody>
+</table>
+
+</div>
+
+<div data-role="footer" data-theme="b">
+<h4>Ministerio de Transporte <br> y Telecomunicaciones</h4>
+</div>
+
+</div>
+
+</body>
+</html>
